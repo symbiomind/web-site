@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Community Edition on SymbioMind</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/</link><description>Recent content in Community Edition on SymbioMind</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://symbiomind.io/docs/memory-mcp/community-edition/index.xml" rel="self" type="application/rss+xml"/><item><title>Requirements</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/memory-mcp/community-edition/requirements/</guid><description>&lt;p&gt;Memory MCP-CE is designed to be easy to run, but it is a &lt;em&gt;real&lt;/em&gt; system.
+It pulls real containers, runs a real database, and downloads real embedding models.&lt;/p&gt;
+&lt;div class="callout info"&gt;
+ &lt;div class="callout-content"&gt;
+ &lt;p&gt;First startup is the slowest part. Grab a coffee.
+Once everything is pulled and initialized, Memory MCP-CE starts quickly
+and runs happily in the background.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is what you will need.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Docker &amp;amp; Docker Compose&lt;/strong&gt;
+Install from Docker&amp;rsquo;s official repository:
+&lt;a href="https://docs.docker.com/engine/install/"&gt;https://docs.docker.com/engine/install/&lt;/a&gt;
+(Do not use your distro&amp;rsquo;s Docker package - they are often outdated.)&lt;/p&gt;</description></item><item><title>Quickstart</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/memory-mcp/community-edition/quickstart/</guid><description>&lt;p&gt;This quickstart will get &lt;strong&gt;Memory MCP-CE&lt;/strong&gt; running locally using Docker Compose.&lt;/p&gt;
+&lt;p&gt;The first run takes a few minutes while containers and embedding models are downloaded.
+Subsequent restarts are fast.&lt;/p&gt;
+&lt;h2 id="1-prepare-your-environment"&gt;
+ 1. Prepare your environment
+ &lt;a href="#1-prepare-your-environment" class="anchor"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Fetch the required files directly from GitHub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/.env.example
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the example environment file and edit it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp .env.example .env
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At minimum, change:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;POSTGRES_PASSWORD&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You may also adjust other settings later, but the defaults are fine to start.&lt;/p&gt;</description></item></channel></rss>

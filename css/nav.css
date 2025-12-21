@@ -1,0 +1,137 @@
+/* @import url("vars.css"); */
+
+.navbar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: inherit;
+  height: 58px;
+}
+
+.navbar #dropdown[type="checkbox"],
+.navbar label[for="dropdown"] {
+  display: none;
+}
+
+/* Hide checkboxes for hamburger menus */
+.navbar #dashboard[type="checkbox"],
+.navbar #docs-menu[type="checkbox"] {
+  display: none;
+}
+
+/* Hamburger labels - hidden by default, shown on mobile via media query */
+.navbar label[for="dashboard"],
+.navbar label[for="docs-menu"] {
+  display: none;
+  cursor: pointer;
+}
+
+.navbar label[for="dropdown"] svg,
+.navbar label[for="dashboard"] svg,
+.navbar label[for="docs-menu"] svg {
+  display: block;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0 -1em 0 auto;
+  padding: 0;
+  background: inherit;
+  text-align: center;
+}
+
+.navbar ul a {
+  display: block;
+  padding: 1em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.navbar ul :hover {
+  background-color: #3395FF;
+  /* background-color: var(--bg3); */
+  /* text-decoration: none; */
+}
+
+
+.navbar #login-li a {
+  background-color: #007BFF;
+  color: #ffffff;
+}
+
+.navbar ul #login-li a:hover {
+  background-color: #3395FF;
+  /* background-color: var(--bg3); */
+  text-decoration: none;
+}
+
+.navbar #logout-li a {
+  background-color: #FF8400;
+  color: #ffffff;
+}
+
+.navbar ul #logout-li a:hover {
+  background-color: #FF9D33;
+  /* background-color: var(--bg3); */
+  text-decoration: none;
+}
+
+
+.navbar ul .active {
+  /* border-bottom: solid 2px; */
+  /* background-color: #007BFF; */
+  background-color: var(--bg3);
+}
+
+.navbar ul #dashboard-li.active {
+  /* border-bottom: solid 2px; */
+  background-color: #007BFF;
+  color: #ffffff;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .navbar label[for="dropdown"] {
+    display: block;
+  }
+  
+  /* Show dashboard hamburger on mobile (only rendered on dashboard pages) */
+  .navbar label[for="dashboard"].dashboard-hamburger {
+    display: block;
+  }
+
+  .navbar p {
+    margin: 0 auto;
+  }
+
+  .navbar ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin: 0;
+    flex-direction: column;
+    z-index: 100;
+  }
+
+  .navbar ul .active {
+    border: none;
+    background-color: var(--bg3);
+  }
+
+  .navbar ul a {
+    padding: 1em 2em;
+  }
+
+  .navbar:has(#dropdown:checked) ul {
+    display: none;
+  }
+}
+
+/* Docs hamburger visibility at tablet breakpoint (only rendered on docs pages) */
+@media screen and (max-width: 768px) {
+  .navbar label[for="docs-menu"].docs-hamburger {
+    display: block;
+  }
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Home on SymbioMind</title><link>https://symbiomind.io/</link><description>Recent content in Home on SymbioMind</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://symbiomind.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Requirements</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/requirements/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/memory-mcp/community-edition/requirements/</guid><description>&lt;p&gt;Memory MCP-CE is designed to be easy to run, but it is a &lt;em&gt;real&lt;/em&gt; system.
+It pulls real containers, runs a real database, and downloads real embedding models.&lt;/p&gt;
+&lt;div class="callout info"&gt;
+ &lt;div class="callout-content"&gt;
+ &lt;p&gt;First startup is the slowest part. Grab a coffee.
+Once everything is pulled and initialized, Memory MCP-CE starts quickly
+and runs happily in the background.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is what you will need.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Docker &amp;amp; Docker Compose&lt;/strong&gt;
+Install from Docker&amp;rsquo;s official repository:
+&lt;a href="https://docs.docker.com/engine/install/"&gt;https://docs.docker.com/engine/install/&lt;/a&gt;
+(Do not use your distro&amp;rsquo;s Docker package - they are often outdated.)&lt;/p&gt;</description></item><item><title>Quickstart</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/quickstart/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/memory-mcp/community-edition/quickstart/</guid><description>&lt;p&gt;This quickstart will get &lt;strong&gt;Memory MCP-CE&lt;/strong&gt; running locally using Docker Compose.&lt;/p&gt;
+&lt;p&gt;The first run takes a few minutes while containers and embedding models are downloaded.
+Subsequent restarts are fast.&lt;/p&gt;
+&lt;h2 id="1-prepare-your-environment"&gt;
+ 1. Prepare your environment
+ &lt;a href="#1-prepare-your-environment" class="anchor"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Fetch the required files directly from GitHub:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/docker-compose.yml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/.env.example
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the example environment file and edit it:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp .env.example .env
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;At minimum, change:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;POSTGRES_PASSWORD&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You may also adjust other settings later, but the defaults are fine to start.&lt;/p&gt;</description></item><item><title>Dashboard</title><link>https://symbiomind.io/dashboard/home/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/dashboard/home/</guid><description>&lt;div class="callout success"&gt;
+ &lt;div class="callout-content"&gt;
+ &lt;p&gt;&lt;strong&gt;developmental mode&lt;/strong&gt;.&lt;/p&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;link rel="stylesheet" href="https://symbiomind.io/css/dashboard.min.622e1367f9c23cca75ffc5381a20bf8c83547692b501113384857c5836be6df3.css" integrity="sha256-Yi4TZ/nCPMp1/8U4GiC/jINUdpK1AREzhIV8WDa&amp;#43;bfM="&gt;
+
+
+&lt;script src="https://symbiomind.io/js/dashboard.min.b8bbe7eab90f81b9bb067a6800745bf2f9567593eb289c749c2d134af74b8f57.js" integrity="sha256-uLvn6rkPgbm7BnpoAHRb8vlWdZPrKJx0nC0TSvdLj1c="&gt;&lt;/script&gt;
+
+&lt;section id="dashboard-container"&gt;
+ 
+&lt;/section&gt;
+
+
+
+
+
+
+&lt;script src="https://symbiomind.io/js/components.min.4a6d50c3a715b0110a51794875c94c1666e770831b31b40807a70b4c54df8c77.js" integrity="sha256-Sm1Qw6cVsBEKUXlIdclMFmbncIMbMbQIB6cLTFTfjHc=" crossorigin="anonymous"
+ defer&gt;&lt;/script&gt;</description></item><item><title>Login</title><link>https://symbiomind.io/dashboard/login/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/dashboard/login/</guid><description>&lt;link rel="stylesheet" href="https://symbiomind.io/css/login.min.a7039b83c42ee3004d198d64946159e57eb5a8ce89bd47446d890a591af4da62.css" integrity="sha256-pwObg8Qu4wBNGY1klGFZ5X61qM6JvUdEbYkKWRr02mI="&gt;
+
+&lt;div id="login-container"&gt;&lt;/div&gt;
+
+&lt;script src="https://symbiomind.io/js/login.min.7b00df822e18534da184f4f41381e299d4b989366cb0eebd169fc764c156d241.js" integrity="sha256-ewDfgi4YU02hhPT0E4HimdS5iTZssO69Fp/HZMFW0kE="&gt;&lt;/script&gt;</description></item><item><title>Under Construction</title><link>https://symbiomind.io/under-construction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/under-construction/</guid><description>&lt;p&gt;This feature is currently being built. Check back soon!&lt;/p&gt;
+&lt;p&gt;In the meantime, visit our &lt;a href="https://github.com/symbiomind/memory-mcp-ce"&gt;GitHub repository&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>

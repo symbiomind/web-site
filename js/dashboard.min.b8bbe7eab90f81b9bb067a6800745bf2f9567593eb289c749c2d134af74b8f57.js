@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",function(){const e=document.getElementById("dashboard-li");e&&window.location.pathname.includes("dashboard")&&e.classList.add("active")})
