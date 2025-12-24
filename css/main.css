@@ -97,10 +97,14 @@ a:hover {
 
 pre code {
   padding: 0;
+  position: relative;
+  top: 0;
 }
 
 code {
   padding: 0.2em 0.3em;
+  position: relative;
+  top: -0.06em;
 }
 
 table {
@@ -136,4 +140,16 @@ figcaption {
   margin-top: 1em;
   color: var(--fg2);
   text-align: center;
+}
+
+blockquote {
+  margin: 20px 0;
+  padding: 0 14px;
+  border-inline-start: 6px solid var(--link);
+}
+
+hr {
+  border: none; /* Removes the default border styling */
+  height: 1px; /* Sets the thickness of the line */
+  background-color: var(--fg2);
 }

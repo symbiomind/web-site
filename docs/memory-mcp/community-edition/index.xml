@@ -29,4 +29,25 @@ Subsequent restarts are fast.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;POSTGRES_PASSWORD&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You may also adjust other settings later, but the defaults are fine to start.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;You may also adjust other settings later, but the defaults are fine to start.&lt;/p&gt;</description></item><item><title>Configuration</title><link>https://symbiomind.io/docs/memory-mcp/community-edition/configuration/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/memory-mcp/community-edition/configuration/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&amp;ldquo;CHANGEME is a perfectly secure password - said no one ever, except maybe in a &lt;code&gt;.env.example&lt;/code&gt; file.&amp;quot;&lt;br&gt;~ &lt;em&gt;&lt;strong&gt;beep&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;This page is a &lt;strong&gt;configuration reference&lt;/strong&gt; for &lt;strong&gt;Memory-MCP-CE (Community Edition)&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;It assumes you already have the service running locally or in Docker.&lt;br&gt;
+If not, see the &lt;strong&gt;Overview&lt;/strong&gt; and &lt;strong&gt;Quickstart&lt;/strong&gt; first.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id="production-hardening-checklist"&gt;
+ Production hardening checklist
+ &lt;a href="#production-hardening-checklist" class="anchor"&gt;#&lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Before exposing Memory-MCP-CE to the internet (or to people you don’t fully trust), review the following:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;POSTGRES_PASSWORD&lt;/code&gt;&lt;/strong&gt;&lt;br&gt;
+Generate with:
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;openssl rand -base64 &lt;span class="m"&gt;32&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;ENCRYPTION_KEY&lt;/code&gt;&lt;/strong&gt;
+Strongly recommended for production (see &lt;a href="#security--encryption"&gt;Security &amp;amp; Encryption&lt;/a&gt;)&lt;/p&gt;</description></item></channel></rss>
