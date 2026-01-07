@@ -18,12 +18,10 @@
 
 &lt;div class="callout info"&gt;
  &lt;div class="callout-content"&gt;
- &lt;p&gt;&lt;strong&gt;INFO: About ChatGPT developer mode&lt;/strong&gt; - ChatGPT developer mode is a beta feature that provides full Model Context Protocol (MCP) client support for all tools, both read and write.&lt;br&gt;(September 2025)&lt;/p&gt;
+ &lt;p&gt;&lt;strong&gt;INFO: About ChatGPT developer mode&lt;/strong&gt; – ChatGPT developer mode is a beta feature that provides MCP client support for both read and write tools.&lt;br&gt;(September 2025)&lt;/p&gt;
  &lt;/div&gt;
 &lt;/div&gt;
-&lt;blockquote&gt;
-&lt;h2 id="openai---mcp---risks-and-safety"&gt;
- OpenAI - MCP - Risks and safety
- &lt;a href="#openai---mcp---risks-and-safety" class="anchor"&gt;#&lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;Custom MCP servers enable you to connect your ChatGPT workspace to external applications, which allows ChatGPT to access, send and receive data in these applications. Please note that custom MCP servers are not developed or verified by OpenAI, and are third-party services that are subject to their own terms and conditions.&lt;br&gt;&lt;a href="https://platform.openai.com/docs/mcp#risks-and-safety"&gt;OpenAI - Docs - MCP - Risks and safety&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="callout warning"&gt;
+ &lt;div class="callout-content"&gt;
+ &lt;p&gt;&lt;p&gt;&lt;strong&gt;WARNING: ChatGPT Web/App Compatibility&lt;/strong&gt; – The ChatGPT Web/App interface is not recommended for MCP usage involving write operations.&lt;/p&gt;
+&lt;p&gt;While MCP connectivity and read-only tools generally work, write operations may be duplicated, replayed, or blocked entirely due to client-side behavior in OpenAI’s UI layer.&lt;/p&gt;</description></item></channel></rss>
