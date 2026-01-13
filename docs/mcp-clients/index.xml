@@ -24,4 +24,26 @@
 &lt;div class="callout warning"&gt;
  &lt;div class="callout-content"&gt;
  &lt;p&gt;&lt;p&gt;&lt;strong&gt;WARNING: ChatGPT Web/App Compatibility&lt;/strong&gt; – The ChatGPT Web/App interface is not recommended for MCP usage involving write operations.&lt;/p&gt;
-&lt;p&gt;While MCP connectivity and read-only tools generally work, write operations may be duplicated, replayed, or blocked entirely due to client-side behavior in OpenAI’s UI layer.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;While MCP connectivity and read-only tools generally work, write operations may be duplicated, replayed, or blocked entirely due to client-side behavior in OpenAI’s UI layer.&lt;/p&gt;</description></item><item><title>Claude (Anthropic)</title><link>https://symbiomind.io/docs/mcp-clients/claude/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/mcp-clients/claude/</guid><description>&lt;aside class="mcp-client-auth" role="note" aria-label="Authentication support summary"&gt;
+ &lt;ul class="mcp-client-auth__list"&gt;
+ &lt;li class="mcp-client-auth__item"&gt;&lt;span class="mcp-client-auth__icon" aria-hidden="true"&gt;✅&lt;/span&gt;
+ &lt;span class="sr-only"&gt;Supported:&lt;/span&gt;
+ &lt;span&gt;No auth (not recommended)&lt;/span&gt;&lt;/li&gt;
+
+ &lt;li class="mcp-client-auth__item"&gt;&lt;span class="mcp-client-auth__icon" aria-hidden="true"&gt;❌&lt;/span&gt;
+ &lt;span class="sr-only"&gt;Not supported:&lt;/span&gt;
+ &lt;span&gt;Bearer token&lt;/span&gt;&lt;/li&gt;
+
+ &lt;li class="mcp-client-auth__item"&gt;&lt;span class="mcp-client-auth__icon" aria-hidden="true"&gt;✅&lt;/span&gt;
+ &lt;span class="sr-only"&gt;Supported:&lt;/span&gt;
+ &lt;span&gt;OAuth&lt;/span&gt;&lt;div class="mcp-client-auth__sub"&gt;
+ &lt;code&gt;Redirect URI: https://claude.ai/api/mcp/auth_callback&lt;/code&gt;
+ &lt;/div&gt;&lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;div class="callout info"&gt;
+ &lt;div class="callout-content"&gt;
+ &lt;p&gt;&lt;p&gt;&lt;strong&gt;INFO: Claude&amp;rsquo;s MCP Implementation&lt;/strong&gt; – Claude.ai fully supports the Model Context Protocol specification, including all tool types (read and write operations). MCP servers integrate seamlessly with Claude&amp;rsquo;s Projects feature for automatic context retrieval.&lt;/p&gt;
+&lt;p&gt;Custom connectors using remote MCP are available on Claude.ai and Claude Desktop for users on Pro, Max, Team, and Enterprise plans. The Free plan doesn&amp;rsquo;t include access to custom MCP connectors.&lt;br&gt;
+&lt;a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp"&gt;Claude Support – Getting Started with Custom Connectors Using Remote MCP&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
