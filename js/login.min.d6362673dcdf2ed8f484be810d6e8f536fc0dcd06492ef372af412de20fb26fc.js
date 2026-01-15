@@ -6,11 +6,11 @@ document.addEventListener("DOMContentLoaded",function(){const n={"session-expire
         <form id="login-form">
             <div class="input-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                <input type="email" id="email" name="email" placeholder="Enter your email" autocomplete="username" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
             </div>
             <div class="login-link login-right">
                 <a href="/under-construction/" id="forgot-password-link">Forgot Password?</a>
