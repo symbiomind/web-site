@@ -18,13 +18,13 @@
 
 &lt;div class="callout info"&gt;
  &lt;div class="callout-content"&gt;
- &lt;p&gt;&lt;strong&gt;INFO: About ChatGPT developer mode&lt;/strong&gt; – ChatGPT developer mode is a beta feature that provides MCP client support for both read and write tools.&lt;br&gt;(September 2025)&lt;/p&gt;
+ &lt;p&gt;&lt;strong&gt;INFO: About ChatGPT Developer Mode&lt;/strong&gt; – ChatGPT Developer Mode is a beta feature that provides MCP client support for both read and write tools.&lt;br&gt;
+(September 2025)&lt;/p&gt;
  &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="callout warning"&gt;
+&lt;div class="callout info"&gt;
  &lt;div class="callout-content"&gt;
- &lt;p&gt;&lt;p&gt;&lt;strong&gt;WARNING: ChatGPT Web/App Compatibility&lt;/strong&gt; – The ChatGPT Web/App interface is not recommended for MCP usage involving write operations.&lt;/p&gt;
-&lt;p&gt;While MCP connectivity and read-only tools generally work, write operations may be duplicated, replayed, or blocked entirely due to client-side behavior in OpenAI’s UI layer.&lt;/p&gt;</description></item><item><title>Claude (Anthropic)</title><link>https://symbiomind.io/docs/mcp-clients/claude/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/mcp-clients/claude/</guid><description>&lt;aside class="mcp-client-auth" role="note" aria-label="Authentication support summary"&gt;
+ &lt;p&gt;&lt;strong&gt;INFO: ChatGPT Web/App MCP support&lt;/strong&gt; – As of January 2026, ChatGPT Web/App supports MCP tools (read and write) reliably in standard chat conversations, without repeated consent dialogs or mid-conversation interruptions.&lt;/p&gt;</description></item><item><title>Claude (Anthropic)</title><link>https://symbiomind.io/docs/mcp-clients/claude/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/mcp-clients/claude/</guid><description>&lt;aside class="mcp-client-auth" role="note" aria-label="Authentication support summary"&gt;
  &lt;ul class="mcp-client-auth__list"&gt;
  &lt;li class="mcp-client-auth__item"&gt;&lt;span class="mcp-client-auth__icon" aria-hidden="true"&gt;✅&lt;/span&gt;
  &lt;span class="sr-only"&gt;Supported:&lt;/span&gt;
