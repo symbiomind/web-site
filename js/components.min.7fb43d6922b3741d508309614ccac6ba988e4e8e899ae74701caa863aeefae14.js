@@ -145,12 +145,16 @@ Are you sure you want to continue?`);if(!t)return;n.disabled=!0,n.textContent="L
           </div>
           <div class="page-content">
             <div class="profile-card">
-              <h3>Your Namespaces</h3>
-              <p>No namespaces created yet.</p>
-              <button class="btn btn-primary" id="add-namespace-btn">+ Add Namespace</button>
+              <div class="card-header-row">
+                <h3>Your Namespaces</h3>
+                <button class="btn btn-primary btn-sm" id="add-namespace-btn">+ Add Namespace</button>
+              </div>
+              <div id="namespaces-list">
+                <p class="loading-text">Loading namespaces...</p>
+              </div>
             </div>
           </div>
-        `},{id:"demo-page-b",title:"Second Demo",html:`
+        `},{id:"memory-mcp-roles",title:"Roles",html:`
           <div class="page-header">
             <h2>Second Demo Page</h2>
             <p>Another page within the same section.</p>
@@ -159,21 +163,36 @@ Are you sure you want to continue?`);if(!t)return;n.disabled=!0,n.textContent="L
             <p>All pages in a section share the same collapsible parent in the nav.</p>
             <button onclick="alert('Hello from the second demo page!')">Click Me</button>
           </div>
-        `},{id:"demo-page-c",title:"Third Demo",html:`
-          <div class="page-header">
-            <h2>Third Demo Page</h2>
-            <p>Sections can have as many children as needed!</p>
+        `}]});async function e(){const t=document.getElementById("namespaces-list");if(!t)return;t.innerHTML='<p class="loading-text">Loading namespaces...</p>';try{const s=sessionStorage.getItem("accessToken"),e=await fetch(`${SymbioConfig.api_url}/api/memory-mcp/namespace/list`,{method:"GET",headers:{Authorization:`Bearer ${s}`}});if(!e.ok)throw new Error(`API returned ${e.status}`);const o=await e.json();n(t,o.namespaces)}catch(s){console.error("Failed to load namespaces:",s),t.innerHTML=`
+        <p class="error-text">Failed to load namespaces. <a href="#" id="retry-load">Retry</a></p>
+      `;const n=t.querySelector("#retry-load");n&&n.addEventListener("click",t=>{t.preventDefault(),e()})}}function n(e,n){if(!n||n.length===0){e.innerHTML=`
+        <p class="empty-state">No namespaces yet. Create one to get started!</p>
+      `;return}const s=n.map(e=>{const n=new Date(e.created_at).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}),s=e.embedding_config_id?"Custom":"System Default";return`
+        <div class="namespace-card" data-namespace-id="${e.id}">
+          <div class="namespace-info">
+            <h4 class="namespace-name">${t(e.friendly_name)}</h4>
+            <div class="namespace-meta">
+              <span class="meta-item">Created: ${n}</span>
+              <span class="meta-item">Embeddings: ${s}</span>
+            </div>
           </div>
-          <div class="page-content">
-            <p>Each page gets its own shareable URL.</p>
+          <div class="namespace-actions">
+            <!-- Used to select created roles for this resource -->
+            <button class="btn btn-sm btn-secondary" disabled title="Coming soon">Roles</button>
+            <button class="btn btn-sm btn-secondary" disabled title="Coming soon">Settings</button>
+            <button class="btn btn-sm btn-danger btn-delete-namespace" data-id="${e.id}" data-name="${t(e.friendly_name)}">Delete</button>
           </div>
-        `}]}),document.addEventListener("DOMContentLoaded",function(){setTimeout(function(){const t=document.getElementById("pane-memory-mcp-namespaces");if(!t)return;const e=t.querySelector("#add-namespace-btn");e&&!e.dataset.initialized&&(e.dataset.initialized="true",e.addEventListener("click",function(){window.dashboardApp.showDialog({title:"Add Namespace",content:`
-              <div class="dialog-input-group">
-                <label for="namespace-name">Namespace Name</label>
-                <input type="text" id="namespace-name" placeholder="e.g., my-project" autocomplete="off">
-              </div>
-              <div class="dialog-input-group">
-                <label for="namespace-desc">Description (optional)</label>
-                <textarea id="namespace-desc" placeholder="What is this namespace for?"></textarea>
-              </div>
-            `,buttons:[{text:"Cancel",action:"close"},{text:"Create Namespace",class:"btn-primary",action:function(){const e=document.getElementById("namespace-name").value,t=document.getElementById("namespace-desc").value;console.log("Creating namespace:",{name:e,desc:t}),window.dashboardApp.hideDialog()}}]})}))},100)})}()
+        </div>
+      `}).join("");e.innerHTML=s,e.querySelectorAll(".btn-delete-namespace").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.id,n=e.dataset.name;a(t,n)})})}function t(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}async function s(e){const n=sessionStorage.getItem("accessToken"),t=await fetch(`${SymbioConfig.api_url}/api/memory-mcp/namespace/create`,{method:"POST",headers:{Authorization:`Bearer ${n}`,"Content-Type":"application/json"},body:JSON.stringify({friendly_name:e})});if(!t.ok){const e=await t.json().catch(()=>({}));throw new Error(e.detail||`API returned ${t.status}`)}return await t.json()}async function o(e){const n=sessionStorage.getItem("accessToken"),t=await fetch(`${SymbioConfig.api_url}/api/memory-mcp/namespace/delete`,{method:"DELETE",headers:{Authorization:`Bearer ${n}`,"Content-Type":"application/json"},body:JSON.stringify({namespace_id:e})});if(!t.ok){const e=await t.json().catch(()=>({}));throw new Error(e.detail||`API returned ${t.status}`)}return await t.json()}function i(){window.dashboardApp.showDialog({title:"Create Namespace",content:`
+        <p class="dialog-description">Create a new namespace for storing AI memories.</p>
+        <div class="dialog-input-group">
+          <label for="namespace-name">Namespace Name</label>
+          <input type="text" id="namespace-name" placeholder="e.g., My AI Assistant" autocomplete="off" maxlength="40">
+          <span class="input-hint">2-40 characters</span>
+        </div>
+        <div id="create-error" class="dialog-error" style="display: none;"></div>
+      `,buttons:[{text:"Cancel",action:"close"},{text:"Create",class:"btn-primary",action:async function(){const o=document.getElementById("namespace-name"),t=document.getElementById("create-error"),i=o.value.trim();if(i.length<2){t.textContent="Name must be at least 2 characters",t.style.display="block",o.focus();return}const n=document.querySelector(".symbio-dialog-footer .btn-primary"),a=n.textContent;n.textContent="Creating...",n.disabled=!0,t.style.display="none";try{await s(i),window.dashboardApp.hideDialog(),e()}catch(e){t.textContent=e.message,t.style.display="block",n.textContent=a,n.disabled=!1}}}]}),setTimeout(()=>{const e=document.getElementById("namespace-name");e&&e.focus()},150)}function a(n,s){window.dashboardApp.showDialog({title:"Delete Namespace",content:`
+        <p class="dialog-warning">⚠️ This will permanently delete the namespace "<strong>${t(s)}</strong>" and all associated roles and credentials.</p>
+        <p class="dialog-warning-emphasis">This cannot be undone.</p>
+        <div id="delete-error" class="dialog-error" style="display: none;"></div>
+      `,buttons:[{text:"Cancel",action:"close"},{text:"Delete Namespace",class:"btn-danger",action:async function(){const s=document.getElementById("delete-error"),t=document.querySelector(".symbio-dialog-footer .btn-danger"),i=t.textContent;t.textContent="Deleting...",t.disabled=!0,s.style.display="none";try{await o(n),window.dashboardApp.hideDialog(),e()}catch(e){s.textContent=e.message,s.style.display="block",t.textContent=i,t.disabled=!1}}}]})}function r(){const n=document.getElementById("pane-memory-mcp-namespaces");if(!n)return;const t=n.querySelector("#add-namespace-btn");t&&!t.dataset.initialized&&(t.dataset.initialized="true",t.addEventListener("click",i)),e()}document.addEventListener("DOMContentLoaded",function(){setTimeout(r,100)})}()
