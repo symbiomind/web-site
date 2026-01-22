@@ -138,9 +138,9 @@ Are you sure you want to continue?`);if(!t)return;o.disabled=!0,o.textContent="L
       </div>
 
     </div>
-  `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("profile",d)})}(),function(){window.dashboardPages=window.dashboardPages||[];function n(e){return e?e.split("-").map(e=>e.charAt(0).toUpperCase()+e.slice(1).toUpperCase()).join(" "):"Unknown"}function e(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function s(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}):"Unknown"}async function t(){const e=document.getElementById("roles-list");if(!e)return;e.innerHTML='<p class="loading-text">Loading roles...</p>';try{const n=sessionStorage.getItem("accessToken"),t=await fetch(`${SymbioConfig.api_url}/api/roles/list`,{method:"GET",headers:{Authorization:`Bearer ${n}`}});if(!t.ok)throw new Error(`API returned ${t.status}`);const s=await t.json();a(e,s.roles)}catch(s){console.error("Failed to load roles:",s),e.innerHTML=`
+  `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("profile",d)})}(),function(){window.dashboardPages=window.dashboardPages||[];function n(e){return e?e.split("-").join(" "):"Unknown"}function e(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function s(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}):"Unknown"}async function t(){const e=document.getElementById("roles-list");if(!e)return;e.innerHTML='<p class="loading-text">Loading roles...</p>';try{const n=sessionStorage.getItem("accessToken"),t=await fetch(`${SymbioConfig.api_url}/api/roles/list`,{method:"GET",headers:{Authorization:`Bearer ${n}`}});if(!t.ok)throw new Error(`API returned ${t.status}`);const s=await t.json();a(e,s.roles)}catch(s){console.error("Failed to load roles:",s),e.innerHTML=`
         <p class="error-text">Failed to load roles. <a href="#" id="retry-roles-load">Retry</a></p>
-      `;const n=e.querySelector("#retry-roles-load");n&&n.addEventListener("click",e=>{e.preventDefault(),t()})}}function o(e){const t={};return e.forEach(e=>{const n=e.resource_type||"unknown",s=e.resource_name||"Unknown Resource";t[n]||(t[n]={}),t[n][s]||(t[n][s]={resource_id:e.resource_id,is_admin:e.is_admin,roles:[]}),t[n][s].roles.push(e)}),t}function i(t){const o=t.role_name==="owner",a=t.permissions&&t.permissions.admin===!0,r=s(t.created_at);let n="";o?n='<span class="item-badge item-badge-owner">Owner</span>':a&&(n='<span class="item-badge item-badge-admin">Admin</span>');const i=[`Created: ${r}`];if(!o&&Object.keys(t.permissions||{}).length>0){const e=Object.keys(t.permissions).length;i.push(`${e} permission${e!==1?"s":""}`)}return`
+      `;const n=e.querySelector("#retry-roles-load");n&&n.addEventListener("click",e=>{e.preventDefault(),t()})}}function o(e){const t={};return e.forEach(e=>{const n=e.resource_type||"unknown",s=e.resource_name||"Unknown Resource";t[n]||(t[n]={}),t[n][s]||(t[n][s]={resource_id:e.resource_id,is_admin:e.is_admin,roles:[]}),t[n][s].roles.push(e)}),t}function i(t){const i=t.role_name==="owner",r=t.permissions&&t.permissions.admin===!0,a=s(t.created_at);let n="";n='<span class="item-badge item-badge-admin">Admin</span>';const o=[`Created: ${a}`];if(!i&&Object.keys(t.permissions||{}).length>0){const e=Object.keys(t.permissions).length;o.push(`${e} permission${e!==1?"s":""}`)}return`
       <div class="item-card" data-role-id="${t.id}">
         <div class="item-info">
           <h4 class="item-name">
@@ -148,7 +148,7 @@ Are you sure you want to continue?`);if(!t)return;o.disabled=!0,o.textContent="L
             ${n}
           </h4>
           <div class="item-meta">
-            ${i.map(e=>`<span class="meta-item">${e}</span>`).join("")}
+            ${o.map(e=>`<span class="meta-item">${e}</span>`).join("")}
           </div>
         </div>
         <div class="item-actions">
