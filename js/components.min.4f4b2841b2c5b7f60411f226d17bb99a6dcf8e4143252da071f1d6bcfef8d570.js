@@ -138,49 +138,55 @@ Are you sure you want to continue?`);if(!t)return;o.disabled=!0,o.textContent="L
       </div>
 
     </div>
-  `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("profile",d)})}(),function(){window.dashboardPages=window.dashboardPages||[];function a(e){return e?e.split("-").join(" "):"Unknown"}function t(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function u(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}):"Unknown"}let o=null,e=null;async function n(t=null){const s=document.getElementById("roles-list");if(!s)return;s.innerHTML='<p class="loading-text">Loading roles...</p>',o=t;try{const a=sessionStorage.getItem("accessToken");let i=`${SymbioConfig.api_url}/api/roles/list`;t&&(i+=`?resource_id=${t}`);const o=await fetch(i,{method:"GET",headers:{Authorization:`Bearer ${a}`}});if(!o.ok)throw new Error(`API returned ${o.status}`);const n=await o.json();t&&n.roles&&n.roles.length>0?e=n.roles[0].resource_name:t&&(e="this resource"),d(s,n.roles,t)}catch(o){console.error("Failed to load roles:",o),s.innerHTML=`
+  `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("profile",d)})}(),function(){window.dashboardPages=window.dashboardPages||[];function a(e){return e?e.split("-").join(" "):"Unknown"}function e(e){const t=document.createElement("div");return t.textContent=e,t.innerHTML}function i(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}):"Unknown"}let o=null,t=null;async function n(e=null){const s=document.getElementById("roles-list");if(!s)return;s.innerHTML='<p class="loading-text">Loading roles...</p>',o=e;try{const a=sessionStorage.getItem("accessToken");let i=`${SymbioConfig.api_url}/api/roles/list`;e&&(i+=`?resource_id=${e}`);const o=await fetch(i,{method:"GET",headers:{Authorization:`Bearer ${a}`}});if(!o.ok)throw new Error(`API returned ${o.status}`);const n=await o.json();e&&n.roles&&n.roles.length>0?t=n.roles[0].resource_name:e&&(t="this resource"),u(s,n.roles,e)}catch(o){console.error("Failed to load roles:",o),s.innerHTML=`
         <p class="error-text">Failed to load roles. <a href="#" id="retry-roles-load">Retry</a></p>
-      `;const e=s.querySelector("#retry-roles-load");e&&e.addEventListener("click",e=>{e.preventDefault(),n(t)})}}function i(){o=null,e=null;const t=new URL(window.location);t.searchParams.delete("resource_id"),t.searchParams.delete("role_id"),window.history.pushState({},"",t),n()}function r(e){const t={};return e.forEach(e=>{const n=e.resource_type||"unknown",s=e.resource_name||"Unknown Resource";t[n]||(t[n]={}),t[n][s]||(t[n][s]={resource_id:e.resource_id,is_admin:e.is_admin,roles:[]}),t[n][s].roles.push(e)}),t}function c(e){const o=e.role_name==="owner",a=e.permissions&&e.permissions.admin===!0,i=u(e.created_at);let n="";n='<span class="item-badge item-badge-admin">Admin</span>';const s=[`Created: ${i}`];if(!o&&Object.keys(e.permissions||{}).length>0){const t=Object.keys(e.permissions).length;s.push(`${t} permission${t!==1?"s":""}`)}return`
-      <div class="item-card" data-role-id="${e.id}">
+      `;const t=s.querySelector("#retry-roles-load");t&&t.addEventListener("click",t=>{t.preventDefault(),n(e)})}}function s(){o=null,t=null;const e=new URL(window.location);e.searchParams.delete("resource_id"),e.searchParams.delete("role_id"),window.history.pushState({},"",e),n()}function r(e){const t={};return e.forEach(e=>{const n=e.resource_type||"unknown",s=e.resource_id;t[n]||(t[n]={}),t[n][s]||(t[n][s]={resource_name:e.resource_name||"Unknown Resource",is_admin:e.is_admin||!1,roles:[]}),e.is_admin&&(t[n][s].is_admin=!0),t[n][s].roles.push(e)}),Object.keys(t).forEach(e=>{Object.keys(t[e]).forEach(n=>{t[e][n].roles.sort((e,t)=>e.role_name==="owner"?-1:t.role_name==="owner"?1:e.role_name.localeCompare(t.role_name))})}),t}function c(t,n){const a=t.role_name==="owner",r=i(t.created_at),o=[`Created: ${r}`];o.push("Users: 1");let s="";return a?s=`
+        <button class="btn btn-sm btn-secondary btn-role-users" data-role-id="${t.id}">Users</button>
+      `:n?s=`
+        <button class="btn btn-sm btn-secondary btn-role-users" data-role-id="${t.id}">Users</button>
+        <button class="btn btn-sm btn-secondary" disabled title="Coming soon">Settings</button>
+        <button class="btn btn-sm btn-danger btn-delete-role" data-role-id="${t.id}" data-role-name="${e(t.role_name)}">Delete</button>
+      `:s=`
+        <button class="btn btn-sm btn-secondary btn-role-users" data-role-id="${t.id}">Users</button>
+      `,`
+      <div class="item-card" data-role-id="${t.id}">
         <div class="item-info">
-          <h4 class="item-name">
-            ${t(e.role_name)}
-            ${n}
-          </h4>
+          <h4 class="item-name">${e(t.role_name)}</h4>
           <div class="item-meta">
-            ${s.map(e=>`<span class="meta-item">${e}</span>`).join("")}
+            ${o.map(e=>`<span class="meta-item">${e}</span>`).join("")}
           </div>
         </div>
         <div class="item-actions">
-          <!-- No actions yet - just display -->
+          ${s}
         </div>
       </div>
-    `}function l(e){return`
+    `}function l(t,n,s){const o=n?'<span class="item-badge item-badge-owner">Owner</span>':"",i=n?`<button class="btn btn-primary btn-sm btn-add-role" data-resource-id="${s}" data-resource-name="${e(t)}">+ Add Role</button>`:"";return`
+      <div class="card-header-row">
+        <h3>${e(t)} ${o}</h3>
+        ${i}
+      </div>
+    `}function d(t){return`
       <div class="filter-banner">
         <span class="filter-text">
-          Filtered by: <strong>${t(e)}</strong>
+          Filtered by: <strong>${e(t)}</strong>
         </span>
         <button class="btn btn-sm btn-secondary" id="clear-filter-btn">Show All Roles</button>
       </div>
-    `}function d(n,o,i=!1){let d="";if(i&&e&&(d+=l(e)),!o||o.length===0){const e=i?"No custom roles for this resource yet. Only the owner role exists.":"No roles found. Create a namespace to get started!";d+=`<p class="empty-state">${e}</p>`,n.innerHTML=d,s(n);return}const u=r(o);Object.keys(u).sort().forEach(e=>{const s=a(e),n=u[e];d+=`
-        <div class="profile-card">
-          <h3>${t(s)}</h3>
-      `,Object.keys(n).sort().forEach(e=>{const s=n[e],o=s.roles.map(e=>c(e)).join("");d+=`
+    `}function u(n,s,o=!1){let i="";if(o&&t&&(i+=d(t)),!s||s.length===0){const e=o?"No custom roles for this resource yet. Only the owner role exists.":"No roles found. Create a namespace to get started!";i+=`<p class="empty-state">${e}</p>`,n.innerHTML=i,m(n);return}const u=r(s);Object.keys(u).sort().forEach(t=>{const s=a(t),n=u[t],o=Object.keys(n);i+=`<h2>${e(s)}</h2>`,o.forEach(e=>{const t=n[e],s=t.roles.map(e=>c(e,t.is_admin)).join("");i+=`<div class="profile-card">`,i+=l(t.resource_name,t.is_admin,e),i+=`
           <div class="resource-group">
-            <h4 class="resource-subheader">${t(e)}</h4>
-            ${o}
+            ${s}
           </div>
-        `}),d+=`</div>`}),n.innerHTML=d,s(n)}function s(e){const t=e.querySelector("#clear-filter-btn");t&&t.addEventListener("click",i)}function h(){const e=document.getElementById("pane-roles");if(!e)return;const t=window.dashboardApp.getUrlParam("resource_id");n(t)}window.dashboardPages.push({id:"roles",title:"Roles",html:`
+        `,i+=`</div>`})}),n.innerHTML=i,h(n)}function h(e){const t=e.querySelector("#clear-filter-btn");t&&t.addEventListener("click",s),e.querySelectorAll(".btn-add-role").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.resourceId,n=e.dataset.resourceName;console.log("Add Role clicked for:",n,t)})}),e.querySelectorAll(".btn-role-users").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.roleId;console.log("Users clicked for role:",t)})}),e.querySelectorAll(".btn-delete-role").forEach(e=>{e.addEventListener("click",()=>{const t=e.dataset.roleId,n=e.dataset.roleName;console.log("Delete clicked for role:",n,t)})})}function m(e){const t=e.querySelector("#clear-filter-btn");t&&t.addEventListener("click",s)}function f(){const e=document.getElementById("pane-roles");if(!e)return;const t=window.dashboardApp.getUrlParam("resource_id");n(t)}window.dashboardPages.push({id:"roles",title:"Roles",html:`
       <div class="page-header">
         <h2>Roles</h2>
-        <p>View your roles across all resources.</p>
+        <p>View and manage your roles across all resources.</p>
       </div>
       <div class="page-content">
         <div id="roles-list">
           <p class="loading-text">Loading roles...</p>
         </div>
       </div>
-    `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("roles",h)})}(),function(){window.dashboardPages=window.dashboardPages||[],window.dashboardPages.push({id:"memory-mcp",title:"Memory MCP",type:"section",expanded:!0,children:[{id:"memory-mcp-resources",title:"Namespaces",html:`
+    `}),window.addEventListener("dashboardReady",function(){window.dashboardApp.onPageVisible("roles",f)})}(),function(){window.dashboardPages=window.dashboardPages||[],window.dashboardPages.push({id:"memory-mcp",title:"Memory MCP",type:"section",expanded:!0,children:[{id:"memory-mcp-resources",title:"Namespaces",html:`
           <div class="page-header">
             <h2>Namespaces</h2>
             <p>Separate memory storage areas for different AI assistants or projects.</p>
