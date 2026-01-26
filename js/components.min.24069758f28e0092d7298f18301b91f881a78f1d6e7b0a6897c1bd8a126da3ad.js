@@ -172,7 +172,7 @@ Are you sure you want to continue?`);if(!t)return;o.disabled=!0,o.textContent="L
         </span>
         <button class="btn btn-sm btn-secondary" id="clear-filter-btn">Show All Roles</button>
       </div>
-    `}function u(n,s,o=!1){let i="";if(o&&t&&(i+=d(t)),!s||s.length===0){const e=o?"No custom roles for this resource yet. Only the owner role exists.":"No roles found. Create a namespace to get started!";i+=`<p class="empty-state">${e}</p>`,n.innerHTML=i,m(n);return}const u=r(s);Object.keys(u).sort().forEach(t=>{const s=a(t),n=u[t],o=Object.keys(n);i+=`<h2>${e(s)}</h2>`,o.forEach(e=>{const t=n[e],s=t.roles.map(e=>c(e,t.is_admin)).join("");i+=`<div class="profile-card">`,i+=l(t.resource_name,t.is_admin,e),i+=`
+    `}function u(n,s,o=!1){let i="";if(o&&t&&(i+=d(t)),!s||s.length===0){const e=o?"No roles found for this resource.":"No roles found. Create a namespace to get started!";i+=`<p class="empty-state">${e}</p>`,n.innerHTML=i,m(n);return}const u=r(s);Object.keys(u).sort().forEach(t=>{const s=a(t),n=u[t],o=Object.keys(n);i+=`<h2>${e(s)}</h2>`,o.forEach(e=>{const t=n[e],s=t.roles.map(e=>c(e,t.is_admin)).join("");i+=`<div class="profile-card">`,i+=l(t.resource_name,t.is_admin,e),i+=`
           <div class="resource-group">
             ${s}
           </div>
@@ -239,8 +239,8 @@ Are you sure you want to continue?`);if(!t)return;o.disabled=!0,o.textContent="L
         </div>
         <div id="create-error" class="dialog-error" style="display: none;"></div>
       `,buttons:[{text:"Cancel",action:"close"},{text:"Create",class:"btn-primary",action:async function(){const o=document.getElementById("namespace-name"),e=document.getElementById("create-error"),i=o.value.trim();if(i.length<2){e.textContent="Name must be at least 2 characters",e.style.display="block",o.focus();return}const n=document.querySelector(".symbio-dialog-footer .btn-primary"),a=n.textContent;n.textContent="Creating...",n.disabled=!0,e.style.display="none";try{await s(i),window.dashboardApp.hideDialog(),t()}catch(t){e.textContent=t.message,e.style.display="block",n.textContent=a,n.disabled=!1}}}]}),setTimeout(()=>{const e=document.getElementById("namespace-name");e&&e.focus()},150)}async function a(e){const n=sessionStorage.getItem("accessToken"),t=await fetch(`${SymbioConfig.api_url}/api/roles/list?resource_id=${e}&resource_type=memory-mcp`,{method:"GET",headers:{Authorization:`Bearer ${n}`}});if(!t.ok)throw new Error(`API returned ${t.status}`);return await t.json()}function r(e){return e?new Date(e).toLocaleDateString("en-US",{year:"numeric",month:"short",day:"numeric"}):"Unknown"}async function c(t,n){window.dashboardApp.showDialog({title:`Roles for ${n}`,content:'<p class="loading-text">Loading roles...</p>',buttons:[{text:"Close",action:"close"},{text:"Manage All Roles",class:"btn-primary",action:function(){const e=window.dashboardApp.buildUrl("/dashboard/home/",{tab:"roles",resource_id:t});window.dashboardApp.hideDialog(),window.location.href=e}}]});try{const n=await a(t),s=document.querySelector(".symbio-dialog-content");if(!n.roles||n.roles.length===0){s.innerHTML=`
-          <p class="empty-state">No custom roles yet. Only the owner role exists.</p>
-          <p class="dialog-description">Use "Manage All Roles" to create roles for sharing this namespace.</p>
+          <p class="empty-state">No roles were found for this namespace.</p>
+          <p class="dialog-description">Use "Manage All Roles" to create or manage roles.</p>
         `;return}const o=n.roles.map(t=>`
         <div class="dialog-role-item" data-role-id="${t.id}">
           <div class="dialog-role-info">
