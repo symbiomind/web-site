@@ -46,7 +46,7 @@
  &lt;div class="callout-content"&gt;
  &lt;p&gt;&lt;p&gt;&lt;strong&gt;INFO: Claude&amp;rsquo;s MCP Implementation&lt;/strong&gt; – Claude.ai fully supports the Model Context Protocol specification, including all tool types (read and write operations). MCP servers integrate seamlessly with Claude&amp;rsquo;s Projects feature for automatic context retrieval.&lt;/p&gt;
 &lt;p&gt;Custom connectors using remote MCP are available on Claude.ai and Claude Desktop for users on Pro, Max, Team, and Enterprise plans. The Free plan doesn&amp;rsquo;t include access to custom MCP connectors.&lt;br&gt;
-&lt;a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp"&gt;Claude Support – Getting Started with Custom Connectors Using Remote MCP&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Moltbot</title><link>https://symbiomind.io/docs/mcp-clients/moltbot/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/mcp-clients/moltbot/</guid><description>&lt;aside class="mcp-client-auth" role="note" aria-label="Authentication support summary"&gt;
+&lt;a href="https://support.claude.com/en/articles/11175166-getting-started-with-custom-connectors-using-remote-mcp"&gt;Claude Support – Getting Started with Custom Connectors Using Remote MCP&lt;/a&gt;&lt;/p&gt;</description></item><item><title>OpenClaw</title><link>https://symbiomind.io/docs/mcp-clients/openclaw/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://symbiomind.io/docs/mcp-clients/openclaw/</guid><description>&lt;aside class="mcp-client-auth" role="note" aria-label="Authentication support summary"&gt;
  &lt;ul class="mcp-client-auth__list"&gt;
  &lt;li class="mcp-client-auth__item"&gt;&lt;span class="mcp-client-auth__icon" aria-hidden="true"&gt;✅&lt;/span&gt;
  &lt;span class="sr-only"&gt;Supported:&lt;/span&gt;
@@ -64,11 +64,11 @@
 
 &lt;div class="callout info"&gt;
  &lt;div class="callout-content"&gt;
- &lt;p&gt;&lt;p&gt;&lt;strong&gt;Moltbot Overview&lt;/strong&gt; — Moltbot is an autonomous agent capable of browsing websites, managing emails, controlling your desktop, and integrating with external services (Spotify, Discord, etc.). It can be accessed via terminal, web dashboard, Discord, or other configured interfaces.&lt;/p&gt;
-&lt;p&gt;As of January 2026, Moltbot is rapidly gaining popularity for its autonomous automation capabilities.&lt;/p&gt;
+ &lt;p&gt;&lt;p&gt;&lt;strong&gt;OpenClaw Overview&lt;/strong&gt; — OpenClaw is an autonomous agent capable of browsing websites, managing emails, controlling your desktop, and integrating with external services (Spotify, Discord, etc.). It can be accessed via terminal, web dashboard, Discord, or other configured interfaces.&lt;/p&gt;
+&lt;p&gt;As of January 2026, OpenClaw is rapidly gaining popularity for its autonomous automation capabilities.&lt;/p&gt;
 &lt;/p&gt;
  &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="callout warning"&gt;
  &lt;div class="callout-content"&gt;
- &lt;p&gt;&lt;strong&gt;Autonomous Agent Data Awareness&lt;/strong&gt; — Moltbot may access sensitive systems (email, messaging platforms, desktop environments). When connecting MCP servers, ensure you understand what data may be sent to external services. Use separate namespaces or datasets where supported by your MCP server to keep automation logs distinct from personal or conversational data.&lt;/p&gt;</description></item></channel></rss>
+ &lt;p&gt;&lt;strong&gt;Autonomous Agent Data Awareness&lt;/strong&gt; — OpenClaw may access sensitive systems (email, messaging platforms, desktop environments). When connecting MCP servers, ensure you understand what data may be sent to external services. Use separate namespaces or datasets where supported by your MCP server to keep automation logs distinct from personal or conversational data.&lt;/p&gt;</description></item></channel></rss>
