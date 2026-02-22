@@ -18,11 +18,11 @@ POSTGRES_PASSWORD=CHANGEME
 POSTGRES_DB=memory
 </code></pre><p>These variables configure both:</p><ul><li>the PostgreSQL container (if using docker-compose), and</li><li>the MCP-CE application itself.</li></ul><p><strong>Notes</strong></p><ul><li><code>POSTGRES_HOST=postgres</code> works because it matches the docker-compose service name</li><li>External databases are supported by pointing <code>POSTGRES_HOST</code> externally</li><li>Database and user are created automatically on first run</li></ul><hr><h2 id=embedding-model-configuration>Embedding model configuration
 <a href=#embedding-model-configuration class=anchor>#</a></h2><p>Memory-MCP-CE supports any <strong>OpenAI-compatible embedding API</strong>.</p><pre tabindex=0><code class=language-dotenv data-lang=dotenv>EMBEDDING_URL=http://ollama:11434/v1
-EMBEDDING_MODEL=granite-embedding:30m
+EMBEDDING_MODEL=embeddinggemma:300m
 EMBEDDING_API_KEY=
 </code></pre><h3 id=common-providers>Common providers
 <a href=#common-providers class=anchor>#</a></h3><p><strong>Ollama (local, recommended)</strong></p><pre tabindex=0><code class=language-dotenv data-lang=dotenv>EMBEDDING_URL=http://ollama:11434/v1
-EMBEDDING_MODEL=granite-embedding:30m
+EMBEDDING_MODEL=embeddinggemma:300m
 EMBEDDING_API_KEY=
 </code></pre><p><strong>OpenAI</strong></p><pre tabindex=0><code class=language-dotenv data-lang=dotenv>EMBEDDING_URL=https://api.openai.com/v1
 EMBEDDING_MODEL=text-embedding-3-small
@@ -69,12 +69,12 @@ OLLAMA_MODELS=/models
 <a href=#example-configurations class=anchor>#</a></h2><h3 id=minimal-local-development>Minimal local development
 <a href=#minimal-local-development class=anchor>#</a></h3><pre tabindex=0><code class=language-dotenv data-lang=dotenv>POSTGRES_PASSWORD=CHANGEME
 EMBEDDING_URL=http://ollama:11434/v1
-EMBEDDING_MODEL=granite-embedding:30m
+EMBEDDING_MODEL=embeddinggemma:300m
 OAUTH_BUNDLED=false
 </code></pre><h3 id=production-style-deployment>Production-style deployment
 <a href=#production-style-deployment class=anchor>#</a></h3><pre tabindex=0><code class=language-dotenv data-lang=dotenv>POSTGRES_PASSWORD=&lt;secure&gt;
 EMBEDDING_URL=http://ollama:11434/v1
-EMBEDDING_MODEL=granite-embedding:30m
+EMBEDDING_MODEL=embeddinggemma:300m
 ENCRYPTION_KEY=&lt;secure&gt;
 OAUTH_BUNDLED=true
 OAUTH_CLIENT_SECRET=&lt;secure&gt;

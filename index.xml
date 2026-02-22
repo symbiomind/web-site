@@ -94,7 +94,7 @@ Subsequent restarts are fast.&lt;/p&gt;
  &lt;a href="#1-prepare-your-environment" class="anchor"&gt;#&lt;/a&gt;
 &lt;/h2&gt;
 &lt;p&gt;Fetch the required files directly from GitHub:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/docker-compose.yml
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -o docker-compose.yml https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/docker-compose.example.yml
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;curl -O https://raw.githubusercontent.com/symbiomind/memory-mcp-ce/main/.env.example
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Copy the example environment file and edit it:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cp .env.example .env
