@@ -82,6 +82,8 @@
   /* border-bottom: solid 2px; */
   /* background-color: #007BFF; */
   background-color: var(--bg3);
+  text-decoration: underline;
+  text-underline-offset: 0.7em;
 }
 
 .navbar ul #dashboard-li.active {
